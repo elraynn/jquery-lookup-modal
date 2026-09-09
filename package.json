@@ -1,0 +1,27 @@
+{
+  "name": "jquery-lookup-modal",
+  "version": "1.0.0",
+  "description": "Keyboard-driven picker modal for jQuery + Bootstrap 4 + DataTables",
+  "main": "lookup-modal.js",
+  "files": [
+    "lookup-modal.js"
+  ],
+  "keywords": [
+    "jquery",
+    "datatables",
+    "bootstrap",
+    "modal",
+    "picker"
+  ],
+  "author": "Muhammad Rayhan",
+  "license": "MIT",
+  "peerDependencies": {
+    "jquery": ">=3.0.0",
+    "datatables.net": ">=1.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elraynn/jquery-lookup-modal.git"
+  },
+  "homepage": "https://elraynn.github.io/jquery-lookup-modal/"
+}
