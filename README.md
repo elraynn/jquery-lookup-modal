@@ -1,6 +1,12 @@
 # LookupModal
 
+[![npm version](https://img.shields.io/npm/v/jquery-lookup-modal.svg)](https://www.npmjs.com/package/jquery-lookup-modal)
+
 [Live demo](https://elraynn.github.io/jquery-lookup-modal/) click the input field, press F4.
+
+```
+npm install jquery-lookup-modal
+```
 
 A keyboard-driven picker modal for jQuery + Bootstrap 4 + DataTables. Press F4 (or Enter on an empty field, or just double-click) on an input to open a searchable, paginated list. Pick a row with Enter or double-click and the form fields get filled in automatically.
 
