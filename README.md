@@ -1,21 +1,15 @@
 # LookupModal
 
-A keyboard-driven, server-side searchable "picker" modal for jQuery + Bootstrap 4 + DataTables.
+A keyboard-driven picker modal for jQuery + Bootstrap 4 + DataTables. Press F4 (or Enter on an empty field, or just double-click) on an input to open a searchable, paginated list. Pick a row with Enter or double-click and the form fields get filled in automatically.
 
-Common in ERP/accounting-style forms: press **F4** (or **Enter** on an empty field, or double-click) on an input to open a searchable, paginated list. Pick a row with **Enter** or **double-click**, and the target form fields fill in automatically. No more copy-pasting the same 80-100 lines of modal markup and DataTables init code into every page.
-
-## Why
-
-In a lot of internal business apps (invoicing, purchasing, payroll...), the same "search and pick a record" modal gets hand-written on every single form: customer picker, product picker, employee picker, etc. Each copy duplicates the modal HTML, the DataTables server-side config, and the row-selection wiring — with tiny inconsistencies creeping in over time.
-
-LookupModal turns that into a few lines of config per usage.
+If you've worked on internal business apps (invoicing, purchasing, payroll, etc) you've probably hand-written this same "search and pick a record" modal a dozen times: customer picker, product picker, employee picker... each one copying the same 80-100 lines of modal HTML and DataTables config, with small inconsistencies piling up every time. This plugin turns that into a few lines of config.
 
 ## Requirements
 
 - jQuery
-- Bootstrap 4 (for the modal component)
-- [DataTables](https://datatables.net/) (with server-side processing on your backend)
-- Optional: [DataTables KeyTable extension](https://datatables.net/extensions/keytable/) — enables picking a row by pressing Enter, not just double-click
+- Bootstrap 4 (for the modal)
+- [DataTables](https://datatables.net/), server-side processing on your backend
+- Optional: [KeyTable extension](https://datatables.net/extensions/keytable/), lets you pick a row with Enter instead of only double-click
 
 ## Usage
 
@@ -50,11 +44,11 @@ new LookupModal({
 </script>
 ```
 
-That's it — no modal HTML to write. LookupModal generates one automatically and cleans it up (destroys the DataTable instance) every time it closes, so multiple pickers can live on the same page without colliding.
+No modal HTML to write yourself. LookupModal builds one on the fly and tears it down (destroys the DataTable instance) every time it closes, so you can have several pickers on the same page without them stepping on each other.
 
 ### Using your own modal markup
 
-If you already have a modal in your HTML (e.g. you're migrating an existing page), point `modal` at it instead of letting LookupModal generate one — it just needs a `<table>` inside:
+Migrating an existing page that already has a modal? Point `modal` at it instead of letting LookupModal generate one. It just needs a `<table>` inside:
 
 ```js
 new LookupModal({
@@ -70,19 +64,19 @@ new LookupModal({
 
 | Option | Type | Default | Description |
 |---|---|---|---|
-| `trigger` | selector | *required* | Input that opens the modal on F4 / empty-Enter / double-click |
-| `ajax` | object | *required* | Passed straight to DataTables' `ajax` option |
+| `trigger` | selector | required | Input that opens the modal on F4 / empty-Enter / double-click |
+| `ajax` | object | required | Passed straight to DataTables' `ajax` option |
 | `columns` | array | `[]` | Passed straight to DataTables' `columns` option |
-| `title` | string | `"Cari Data"` | Modal title, used only when auto-generating the modal |
+| `title` | string | `"Cari Data"` | Modal title, only used when auto-generating the modal |
 | `modal` | selector | `null` | Reuse an existing modal instead of generating one |
 | `pageLength` | number | `15` | Rows per page |
 | `shortcuts` | object | `{enter:true, f4:true, dblclick:true}` | Toggle individual open-shortcuts |
 | `focusNext` | selector | `null` | Field to focus after picking a row (defaults to `trigger`) |
 | `onSelect` | function | `function(){}` | Called with the selected row's data |
 
-## Backend contract
+## Backend
 
-LookupModal doesn't care what backend framework you use — it just needs a DataTables server-side processing endpoint (the same `draw`/`start`/`length`/`search` request shape DataTables always sends). If you're on CodeIgniter, any of the many `datatables server-side` helper libraries for CI will work as-is.
+Doesn't matter what you're running server-side, it just needs to speak the DataTables server-side processing protocol (the usual `draw`/`start`/`length`/`search` request). On CodeIgniter, any of the existing "datatables server-side" helper libraries work fine.
 
 ## License
 
