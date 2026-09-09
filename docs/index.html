@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>LookupModal demo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datatables.net-dt@1.13.6/css/jquery.dataTables.min.css" />
+  <style>
+    body { max-width: 480px; margin: 60px auto; font-family: sans-serif; }
+    label { font-size: 14px; color: #555; }
+  </style>
+</head>
+<body>
+  <h3>LookupModal</h3>
+  <p>Click the field below, then press <b>F4</b> (or Enter, or double-click) to open the picker.</p>
+
+  <label>Customer code</label>
+  <input type="text" id="kode_customer" class="form-control mb-2" />
+
+  <label>Customer name</label>
+  <input type="text" id="nama_customer" class="form-control" readonly />
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/datatables.net@1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/datatables.net-keytable@2.11.0/js/dataTables.keyTable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/elraynn/jquery-lookup-modal@main/lookup-modal.js"></script>
+  <script>
+    new LookupModal({
+      trigger: '#kode_customer',
+      title: 'Cari Customer',
+      serverSide: false,
+      ajax: { url: 'customers.json', dataSrc: 'data' },
+      columns: [
+        { title: 'Kode', data: 'kode' },
+        { title: 'Nama', data: 'nama' },
+        { title: 'Alamat', data: 'alamat' },
+      ],
+      onSelect: function (row) {
+        $('#kode_customer').val(row.kode);
+        $('#nama_customer').val(row.nama);
+      },
+    });
+  </script>
+</body>
+</html>

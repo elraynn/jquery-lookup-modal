@@ -16,6 +16,7 @@
         ajax: null, // DataTables ajax config (url, type, data, ...)
         columns: [], // DataTables column defs: [{ title, data, visible }]
         pageLength: 15,
+        serverSide: true,
         shortcuts: { enter: true, f4: true, dblclick: true },
         focusNext: null, // selector to focus after a row is picked; defaults back to trigger
         onSelect: function () {},
@@ -118,7 +119,7 @@
 
     this.dataTable = this.$table.DataTable({
       processing: true,
-      serverSide: true,
+      serverSide: this.options.serverSide,
       paging: true,
       lengthChange: false,
       pageLength: this.options.pageLength,

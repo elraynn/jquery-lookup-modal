@@ -1,0 +1,12 @@
+{
+  "data": [
+    { "kode": "C001", "nama": "Toko Sumber Rejeki", "alamat": "Jakarta Utara" },
+    { "kode": "C002", "nama": "UD Makmur Jaya", "alamat": "Bekasi" },
+    { "kode": "C003", "nama": "CV Berkah Abadi", "alamat": "Tangerang" },
+    { "kode": "C004", "nama": "Toko Sinar Terang", "alamat": "Depok" },
+    { "kode": "C005", "nama": "PT Karya Mandiri", "alamat": "Bogor" },
+    { "kode": "C006", "nama": "Toko Anugerah", "alamat": "Jakarta Selatan" },
+    { "kode": "C007", "nama": "UD Sejahtera", "alamat": "Jakarta Barat" },
+    { "kode": "C008", "nama": "CV Maju Bersama", "alamat": "Bekasi" }
+  ]
+}
